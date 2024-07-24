@@ -10,9 +10,10 @@ body {
 }
 
 .container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
     background: #fff;
     padding: 50px;
-    font-weight: bold;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
@@ -30,6 +31,7 @@ h1 {
     padding: 5px;
     font-size: 1.5em;
     margin-bottom: 20px;
+    animation: bounceIn 1s ease-in-out;
 }
 
 form {
@@ -37,6 +39,7 @@ form {
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
 }
 
 input[type="text"] {
@@ -44,6 +47,7 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1em;
+    animation: pulse 1.5s infinite;
 }
 
 button {
@@ -55,6 +59,7 @@ button {
     cursor: pointer;
     font-size: 1em;
     transition: background 0.3s ease;
+    animation: swing 1s ease-in-out;
 }
 
 button:hover {
@@ -67,6 +72,7 @@ button:hover {
     padding-right: 8px;
     margin-top: 10px;
     text-align: left;
+    animation: slideIn 1s ease-in-out;
 }
 
 ul {
@@ -83,10 +89,12 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    animation: bounce 1s ease-in-out;
 }
 
 li span {
     flex-grow: 1;
+    animation: fadeInLeft 1s ease-in-out;
 }
 
 .remove-btn {
@@ -98,6 +106,7 @@ li span {
     cursor: pointer;
     font-size: 0.9em;
     margin-left: 10px;
+    animation: shake 0.5s ease-in-out;
 }
 
 #contact-list-container::-webkit-scrollbar {
@@ -126,5 +135,112 @@ li span {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes swing {
+    20% {
+        transform: rotate(15deg);
+    }
+    40% {
+        transform: rotate(-10deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+    80% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    from, 20%, 50%, 80%, to {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
     }
 }
