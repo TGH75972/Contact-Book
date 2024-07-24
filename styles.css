@@ -22,6 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 80vh;
+    overflow: hidden;
 }
 
 h1 {
@@ -51,10 +52,10 @@ input[type="text"] {
 }
 
 button {
+    color: black;
     padding: 10px;
-    border: none;
-    background: #007bff;
-    color: #fff;
+    border: 2px solid black;
+    background: white;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1em;
@@ -63,7 +64,7 @@ button {
 }
 
 button:hover {
-    background: #0056b3;
+    background: #75b5f8;
 }
 
 #contact-list-container {
@@ -72,7 +73,6 @@ button:hover {
     padding-right: 8px;
     margin-top: 10px;
     text-align: left;
-    animation: slideIn 1s ease-in-out;
 }
 
 ul {
@@ -89,16 +89,17 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    animation: bounce 1s ease-in-out;
 }
 
 li span {
     flex-grow: 1;
-    animation: fadeInLeft 1s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .remove-btn {
-    background: red;
+    background: rgb(240, 82, 82);
     color: white;
     border: none;
     border-radius: 4px;
@@ -193,37 +194,14 @@ li span {
     }
 }
 
-@keyframes slideIn {
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateX(-30px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes bounce {
-    from, 20%, 50%, 80%, to {
         transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-30px);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
     }
 }
 
